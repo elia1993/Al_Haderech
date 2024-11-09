@@ -2,12 +2,7 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Footer.css'
 import { assets } from '../../assets/assets'
-import {
-  BsFacebook,
-  BsInstagram,
-  BsTwitter,
-  BsGithub,
-} from "react-icons/bs";
+
 
 const Footer = () => {
   return (
