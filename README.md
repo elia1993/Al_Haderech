@@ -47,7 +47,7 @@ The Food Delivery App is a modern web application that connects users with a var
    npm run dev
    ```
 
-## Future Scope
+## Features coming soon...
 - Implement user ratings and reviews for restaurants and dishes.
 - Enhance the admin panel with analytics and reporting features.
 - Introduce loyalty programs and discounts for frequent users.
