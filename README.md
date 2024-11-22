@@ -22,9 +22,9 @@ The Food Delivery App is a modern web application that connects users with a var
 - Responsive design for mobile and desktop users
 
 ## Screenshots
-![Home Page](images/foodzip_home.png)
-![Cart Page](images/foodzip_cart.png)
-![Admin Panel](images/foodzip_admin_orders.png)
+![Home Page](images/Al Haderech | על הדרך _home.png)
+![Cart Page](images/Al Haderech | על הדרך _cart.png)
+![Admin Panel](images/Al Haderech | על הדרך _admin_orders.png)
 
 ## How to Run Locally
 1. **Clone the repository**:

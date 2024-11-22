@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-content-left">
             {/* <img src={assets.logo} alt="" /> */}
-            <Link to='/'><p className='title'>Foodzip</p></Link>
+            <Link to='/'><p className='title'>Al Haderech | על הדרך </p></Link>
             <p>Craving something delicious? Get your favorite meals delivered fast and fresh with our food delivery app. From local favorites to international cuisines, we bring the best dishes straight to your door. Order now and enjoy hassle-free dining at your fingertips!</p>
             <div className="footer-social-icons">
                 <a href='https://github.com/shreyJS'><img src={assets.github2} alt="" /></a>
@@ -30,12 +30,12 @@ const Footer = () => {
             <h2>GET IN TOUCH</h2>
             <ul>
                 <li>+91-9082028676</li>
-                <li>contact@foodzip.com</li>
+                <li>contact@Al Haderech | על הדרך .com</li>
             </ul>
         </div>
       </div>
       <hr />
-      <p className="footer-copyright">Copyright 2024 © Foodzip.com - All Right Reserved.</p>
+      <p className="footer-copyright">Copyright 2024 © Al Haderech | על הדרך .com - All Right Reserved.</p>
     </div>
   )
 }
