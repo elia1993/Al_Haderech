@@ -27,6 +27,12 @@ app.use("/images",express.static('uploads'))
 app.use("/api/cart", cartRouter)
 app.use("/api/order",orderRouter)
 
+console.log("API Routes Registered:");
+console.log("/api/user");
+console.log("/api/food");
+console.log("/api/cart");
+console.log("/api/order");
+
 app.get("/", (req, res) => {
     res.send("API Working")
   });
