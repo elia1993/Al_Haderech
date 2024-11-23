@@ -11,7 +11,7 @@ const StoreContextProvider = (props) => {
     const [food_list, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("");
-    const currency = "₹";
+    const currency = "₪";
     const deliveryCharge = 50;
 
     // Function to add an item to the cart
