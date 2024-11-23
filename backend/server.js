@@ -1,4 +1,3 @@
-// server.js
 import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
@@ -19,8 +18,8 @@ const isDev = process.env.NODE_ENV === 'development';
 
 // Set CORS origin dynamically based on environment
 const allowedOrigin = isDev
-  ? 'http://localhost:5173' // For local development (React on localhost:5173)
-  : process.env.FRONTEND_URL; // In production, this should be the production frontend URL
+  ? 'http://localhost:5173' // Local development (React on localhost:5173)
+  : process.env.VITE_API_URL || 'https://al-haderech-1.onrender.com'; // Production URL from Render
 
 // CORS configuration
 app.use(cors({
