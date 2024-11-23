@@ -19,7 +19,7 @@ const isDev = process.env.NODE_ENV === 'development';
 // Set CORS origin dynamically based on environment
 let allowedOrigins;
 if (isDev) {
-  allowedOrigins = ['http://localhost:5173', 'http://localhost:5174']; // Local dev URLs for frontend and admin site
+  allowedOrigins = ['http://localhost:5173', 'http://localhost:5174','http://localhost:5175']; 
 } else {
   allowedOrigins = [process.env.FRONTEND_URL]; // Allow the production frontend URL
 }
@@ -34,7 +34,7 @@ app.use(cors({
     }
   },
   methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type, Authorization',
+  allowedHeaders: 'Content-Type, Authorization, token', // Add 'token' here to allow the token header
 }));
 
 // Middlewares
