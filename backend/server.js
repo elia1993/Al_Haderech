@@ -16,10 +16,9 @@ const port = process.env.PORT || 4000;
 // Check if running in development mode
 const isDev = process.env.NODE_ENV === 'development';
 
-// Set CORS origin dynamically based on environment
 const allowedOrigin = isDev
-  ? process.env.FRONTEND_URL // For local development (React on localhost:5173)
-  : process.env.FRONTEND_URL; // In production, this should be the production frontend URL
+  ? 'http://localhost:5173' 
+  : 'https://al-haderech-1.onrender.com'; 
 
 // CORS configuration
 app.use(cors({
