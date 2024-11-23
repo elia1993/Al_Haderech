@@ -1,4 +1,5 @@
-import dotenv from 'dotenv'; 
+// server.js
+import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import { connectDB } from './config/db.js';
@@ -13,16 +14,17 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
 
-// Check if running in development mode
+// Check if running in development or production
 const isDev = process.env.NODE_ENV === 'development';
 
+// Set CORS origin dynamically based on environment
 const allowedOrigin = isDev
-  ? 'http://localhost:5173' 
-  : 'https://al-haderech-1.onrender.com'; 
+  ? 'http://localhost:5173' // For local development (React on localhost:5173)
+  : process.env.FRONTEND_URL; // In production, this should be the production frontend URL
 
 // CORS configuration
 app.use(cors({
-  origin: allowedOrigin,
+  origin: allowedOrigin, // Allow frontend URL for CORS
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type, Authorization',
 }));
