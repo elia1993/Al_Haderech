@@ -17,13 +17,22 @@ const port = process.env.PORT || 4000;
 const isDev = process.env.NODE_ENV === 'development';
 
 // Set CORS origin dynamically based on environment
-const allowedOrigin = isDev
-  ? 'http://localhost:5173' // Local development (React on localhost:5173)
-  : process.env.VITE_API_URL || 'https://al-haderech-1.onrender.com'; // Production URL from Render
+let allowedOrigins;
+if (isDev) {
+  allowedOrigins = ['http://localhost:5173', 'http://localhost:5174']; // Local dev URLs for frontend and admin site
+} else {
+  allowedOrigins = [process.env.FRONTEND_URL]; // Allow the production frontend URL
+}
 
 // CORS configuration
 app.use(cors({
-  origin: allowedOrigin, // Allow frontend URL for CORS
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);  // Allow the origin
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type, Authorization',
 }));
