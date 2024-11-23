@@ -13,9 +13,16 @@ const app = express()
 const port = process.env.PORT || 4000;
 dotenv.config();
 console.log("JWT_SECRET:", process.env.JWT_SECRET);
+
+// CORS configuration
+app.use(cors({
+  origin: 'https://al-haderech-1.onrender.com', 
+  methods: 'GET,POST,PUT,DELETE',   
+  allowedHeaders: 'Content-Type, Authorization' 
+}));
+
 // middlewares
 app.use(express.json())
-app.use(cors())
 
 // db connection
 connectDB()
@@ -23,16 +30,15 @@ connectDB()
 // api endpoints
 app.use("/api/user", userRouter)
 app.use("/api/food", foodRouter)
-app.use("/images",express.static('uploads'))
+app.use("/images", express.static('uploads'))
 app.use("/api/cart", cartRouter)
-app.use("/api/order",orderRouter)
+app.use("/api/order", orderRouter)
 
 console.log("API Routes Registered:");
 console.log("/api/user");
 console.log("/api/food");
 console.log("/api/cart");
 console.log("/api/order");
-
 
 app.get("/", (req, res) => {
     res.send("API Working")
