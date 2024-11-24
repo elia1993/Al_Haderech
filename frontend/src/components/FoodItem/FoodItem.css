@@ -21,7 +21,7 @@
     border-radius: 50%;
 }
 .food-item-img-container .add:hover{
-    border: 2px solid #c0392b;
+    border: 2px solid #19beff;
 }
 .food-item-image{
    width: 100%;
@@ -62,7 +62,7 @@
     font-size: 12px;
 }
 .food-item-price{
-    color: #c0392b;
+    color: #19beff;
     font-size: 22px;
     font-weight: 500;
     margin: 10px 0px;
