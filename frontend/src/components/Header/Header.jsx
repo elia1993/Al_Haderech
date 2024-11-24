@@ -19,7 +19,7 @@ const Header = () => {
                 <a href="#explore-menu" className="cta-button">הזמינו עכשיו</a>
             </div>
             <div className="header-image">
-                <img src="https://via.placeholder.com/600x400?text=Delivery+Icon" alt="Delivery vehicle" />
+            <img src="/images/delivery-vehicle.jpg" alt="Delivery vehicle" />
             </div>
         </div>
     );

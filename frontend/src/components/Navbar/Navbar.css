@@ -50,7 +50,7 @@
     position: absolute;
     min-width: 10px;
     min-height: 10px;
-    background-color: #19beff;
+    background-color: #5472e1;
     border-radius: 5px;
     top: -8px;
     left: -8px; /* Change this to 'left' to move it to the left side */
@@ -60,7 +60,7 @@
     background: transparent;
     font-size: 16px;
     color: #49557E;
-    border: 1px solid #19beff;
+    border: 1px solid #5472e1;
     padding: 10px 30px;
     border-radius: 50px;
     cursor: pointer;
@@ -94,7 +94,7 @@
 }
 
 .navbar-profile-dropdown li:hover {
-    color: #19beff;
+    color: #5472e1;
 }
 
 .navbar-profile:hover .navbar-profile-dropdown {
@@ -104,7 +104,7 @@
     background-color: #fff2ef;
     padding: 12px 25px;
     border-radius: 4px;
-    border: 1px solid #19beff;
+    border: 1px solid #5472e1;
     outline: 2px solid white;
     list-style: none;
 }
