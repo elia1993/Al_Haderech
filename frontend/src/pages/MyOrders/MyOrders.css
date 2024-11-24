@@ -16,13 +16,13 @@ direction: rtl;
     font-size: 14px;
     padding: 10px 20px;
     color: #454545;
-    border: 1px solid goldenrod;
+    border: 1px solid #c0392b;
 }
 .my-orders-order img{
     width: 50px;
 }
 .my-orders-order p span{
-    color: goldenrod;
+    color: #c0392b;
 }
 .my-orders-order p b{
     font-weight: 500;

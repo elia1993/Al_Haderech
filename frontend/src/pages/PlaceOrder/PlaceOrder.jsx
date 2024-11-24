@@ -14,11 +14,14 @@ const PlaceOrder = () => {
         lastName: "",
         email: "",
         street: "",
+        entry: "",
+        floor: "",
+        apartment: "",
+        Building_entry_code: "",
         city: "",
-        state: "",
         zipcode: "",
-        country: "",
-        phone: ""
+        phone: "",
+        notes: "",
     })
 
     const { getTotalCartAmount, token, food_list, cartItems, url, setCartItems,currency,deliveryCharge } = useContext(StoreContext);
@@ -82,33 +85,76 @@ const PlaceOrder = () => {
 
     return (
         <form onSubmit={placeOrder} className='place-order'>
-            <div className="place-order-left">
-                <p className='title'>Delivery Information</p>
-                <div className="multi-field">
-                    <input type="text" name='firstName' onChange={onChangeHandler} value={data.firstName} placeholder='First name' required />
-                    <input type="text" name='lastName' onChange={onChangeHandler} value={data.lastName} placeholder='Last name' required />
-                </div>
-                <input type="email" name='email' onChange={onChangeHandler} value={data.email} placeholder='Email address' required />
-                <input type="text" name='street' onChange={onChangeHandler} value={data.street} placeholder='Street' required />
-                <div className="multi-field">
-                    <input type="text" name='city' onChange={onChangeHandler} value={data.city} placeholder='City' required />
-                    <input type="text" name='state' onChange={onChangeHandler} value={data.state} placeholder='State' required />
-                </div>
-                <div className="multi-field">
-                    <input type="text" name='zipcode' onChange={onChangeHandler} value={data.zipcode} placeholder='Zip code' required />
-                    <input type="text" name='country' onChange={onChangeHandler} value={data.country} placeholder='Country' required />
-                </div>
-                <input type="text" name='phone' onChange={onChangeHandler} value={data.phone} placeholder='Phone' required />
-            </div>
+<div className="place-order-left">
+    <p className='title'>כתובת משלוח</p>
+    
+    <div className="multi-field">
+        <div className="input-group">
+            <label htmlFor="firstName">שם פרטי</label>
+            <input type="text" id="firstName" name='firstName' onChange={onChangeHandler} value={data.firstName} placeholder='Enter your first name' required />
+        </div>
+        <div className="input-group">
+            <label htmlFor="lastName">שם משפחה</label>
+            <input type="text" id="lastName" name='lastName' onChange={onChangeHandler} value={data.lastName} placeholder='Enter your last name' required />
+        </div>
+    </div>
+    
+    <div className="input-group">
+        <label htmlFor="email">מייל</label>
+        <input type="email" id="email" name='email' onChange={onChangeHandler} value={data.email} placeholder='Enter your email address' required />
+    </div>
+    
+    <div className="input-group">
+        <label htmlFor="street">רחוב</label>
+        <input type="text" id="street" name='street' onChange={onChangeHandler} value={data.street} placeholder='Enter your street' required />
+    </div>
+    <div className="multi-field">
+        <div className="input-group">
+            <label htmlFor="entry" className="small-label">כניסה</label>
+            <input type="text" id="entry" name="entry" onChange={onChangeHandler} value={data.entry} placeholder="כניסה" />
+        </div>
+        <div className="input-group">
+            <label htmlFor="floor" className="small-label">קומה</label>
+            <input type="text" id="floor" name="floor" onChange={onChangeHandler} value={data.floor} placeholder="קומה" />
+        </div>
+        <div className="input-group">
+            <label htmlFor="apartment" className="small-label">דירה</label>
+            <input type="text" id="apartment" name="apartment" onChange={onChangeHandler} value={data.apartment} placeholder="דירה" />
+        </div>
+    </div>
+    <div className="multi-field">
+        <div className="input-group">
+            <label htmlFor="city">עיר / ישוב</label>
+            <input type="text" id="city" name='city' onChange={onChangeHandler} value={data.city} placeholder='Enter your city' required />
+        </div>
+    </div>
+    
+    <div className="multi-field">
+        <div className="input-group">
+            <label htmlFor="zipcode">מיקוד</label>
+            <input type="text" id="zipcode" name='zipcode' onChange={onChangeHandler} value={data.zipcode} placeholder='Enter your zip code' required />
+        </div>
+    </div>
+    <div className="input-group">
+        <label htmlFor="phone">מספר טלפון</label>
+        <input type="text" id="phone" name='phone' onChange={onChangeHandler} value={data.phone} placeholder='Enter your phone number' required />
+    </div>
+    
+    <div className="input-group">
+        <label htmlFor="notes">הערות לשליח</label>
+        <input type="text" id="notes" name='notes' onChange={onChangeHandler} value={data.notes} placeholder='הערות לשליח'/>
+    </div>
+</div>
+
             <div className="place-order-right">
                 <div className="cart-total">
-                    <h2>Cart Totals</h2>
+                    <h2>סך הכל בעגלת הקניות</h2>
                     <div>
-                        <div className="cart-total-details"><p>Subtotal</p><p>{currency}{getTotalCartAmount()}</p></div>
+                        <div className="cart-total-details"><p>סכום ביניים</p><p>{currency}{getTotalCartAmount()}</p></div>
                         <hr />
-                        <div className="cart-total-details"><p>Delivery Fee</p><p>{currency}{getTotalCartAmount() === 0 ? 0 : deliveryCharge}</p></div>
+                        <div className="cart-total-details"><p>דמי משלוח</p><p>{currency}{getTotalCartAmount() === 0 ? 0 : deliveryCharge}</p></div>
                         <hr />
-                        <div className="cart-total-details"><b>Total</b><b>{currency}{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + deliveryCharge}</b></div>
+                        <div className="cart-total-details"><b>סה״כ</b><b>{currency}{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + deliveryCharge}</b></div>
                     </div>
                 </div>
                 <div className="payment">

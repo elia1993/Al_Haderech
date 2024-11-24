@@ -1,4 +1,5 @@
 import basket_icon from './basket_icon.png'
+import basket_icon_red from './basket_icon_red.png'
 import logo from './logo.png'
 import header_img from './header_img.png'
 import header_2 from './header_2.jpg'
@@ -57,6 +58,7 @@ import cross_icon from './cross_icon.png'
 import selector_icon from './selector_icon.png'
 import rating_starts from './rating_starts.png'
 import profile_icon from './profile_icon.png'
+import profile_icon_red from './profile_icon_red.png'
 import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
@@ -66,6 +68,7 @@ import github2 from './github2.png'
 export const assets = {
     logo,
     basket_icon,
+    basket_icon_red,
     header_img,
     header_2,
     search_icon,
@@ -81,6 +84,7 @@ export const assets = {
     cross_icon,
     selector_icon,
     profile_icon,
+    profile_icon_red,
     logout_icon,
     bag_icon,
     parcel_icon,

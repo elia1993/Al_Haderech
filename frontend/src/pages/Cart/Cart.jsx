@@ -12,7 +12,7 @@ const Cart = () => {
     <div className='cart'>
       <div className="cart-items">
         <div className="cart-items-title">
-          <p>Items</p> <p>Title</p> <p>Price</p> <p>Quantity</p> <p>Total</p> <p>Remove</p>
+          <p>פריט</p> <p>כותרת</p> <p>מחיר</p> <p>כמות</p> <p>סכום</p> <p>למחוק</p>
         </div>
         <br />
         <hr />
@@ -34,22 +34,22 @@ const Cart = () => {
       </div>
       <div className="cart-bottom">
         <div className="cart-total">
-          <h2>Cart Totals</h2>
+          <h2>סך הכל בעגלת הקניות</h2>
           <div>
-            <div className="cart-total-details"><p>Subtotal</p><p>{currency}{getTotalCartAmount()}</p></div>
+            <div className="cart-total-details"><p>סכום ביניים</p><p>{currency}{getTotalCartAmount()}</p></div>
             <hr />
-            <div className="cart-total-details"><p>Delivery Fee</p><p>{currency}{getTotalCartAmount()===0?0:deliveryCharge}</p></div>
+            <div className="cart-total-details"><p> דמי משלוח</p><p>{currency}{getTotalCartAmount()===0?0:deliveryCharge}</p></div>
             <hr />
-            <div className="cart-total-details"><b>Total</b><b>{currency}{getTotalCartAmount()===0?0:getTotalCartAmount()+deliveryCharge}</b></div>
+            <div className="cart-total-details"><b>סה״כ</b><b>{currency}{getTotalCartAmount()===0?0:getTotalCartAmount()+deliveryCharge}</b></div>
           </div>
-          <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>
+          <button onClick={()=>navigate('/order')}>המשך לתשלום</button>
         </div>
         <div className="cart-promocode">
           <div>
-            <p>If you have a promo code, Enter it here</p>
+            <p>קוד קופון</p>
             <div className='cart-promocode-input'>
               <input type="text" placeholder='promo code'/>
-              <button>Submit</button>
+              <button>שלח</button>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@
     height: 100px;
     place-self: center;
     border: 5px solid #bdbdbd;
-    border-top-color: goldenrod;
+    border-top-color: #c0392b;
     border-radius: 50%;
     animation: rotate 1s infinite;
 }

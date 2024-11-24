@@ -1,5 +1,6 @@
 .cart {
     margin: 100px 0px;
+    direction: rtl;
 }
 
 .cart hr {
@@ -62,7 +63,7 @@
 .cart-total button {
     border: none;
     color: white;
-    background-color: goldenrod;
+    background-color: #c0392b;
     width: max(15vw,200px);
     padding: 12px 0px;
     border-radius: 4px;

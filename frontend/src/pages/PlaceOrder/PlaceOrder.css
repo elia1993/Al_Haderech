@@ -4,6 +4,7 @@
     justify-content: space-between;
     gap: 50px;
     margin: 100px 0px;
+    direction: rtl;
 }
 .place-order-left{
     width: 100%;
@@ -20,7 +21,7 @@
     padding: 10px;
     border: 1px solid #C5C5C5;
     border-radius: 4px;
-    outline-color: goldenrod;
+    outline-color: #c0392b;
 }
 .place-order-left .multi-field{
     display: flex;
@@ -33,7 +34,7 @@
 .place-order-submit{
     margin-top: 50px;
     border: none;
-    background-color: goldenrod;
+    background-color: #c0392b;
     color: white;
     padding: 12px 30px;
     border-radius: 4px;
@@ -53,7 +54,7 @@
     display: flex;
     align-items: center;
     gap: 10px ;
-    border: 1px solid goldenrod;
+    border: 1px solid #c0392b;
     padding: 15px;
     border-radius: 4px;
     min-width: 300px;

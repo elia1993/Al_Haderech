@@ -1,16 +1,28 @@
-import React, { useRef } from 'react';
-import './Header.css'
+import React from 'react';
+import './Header.css';
+import { FaCar } from 'react-icons/fa';  // Importing a car icon from react-icons
 
 const Header = () => {
     return (
         <div className='header'>
             <div className='header-contents'>
-                <h2>Order your favourite food here</h2>
-                <p>Choose from a diverse menu featuring a delectable array of dishes crafted with the finest ingredients and culinary expertise. Our mission is to satisfy your cravings and elevate your dining experience, one delicious meal at a time.</p>
-                <button>View Menu</button>
+                <h2 className="header-title">
+                    <FaCar className="car-icon" />
+                    <span className="on-the-way-text">על הדרך</span>
+                </h2>
+                <p className="header-description">
+                    הבוקר שלכם יכול להיות הרבה יותר קל, נעים ומשמח – עם על הדרך! אנחנו מביאים את המוצרים הטריים והטעימים שאתם אוהבים, ישירות עד לבית, לעסק, לגני ילדים, צהרונים ובתי ספר – כל מה שצריך כדי להתחיל את היום ברגל ימין!
+                </p>
+                <p className="header-description">
+                    אין צורך לצאת מהבית או מהמשרד – עם על הדרך, כל ארוחת בוקר, הפסקת עשר או נשנוש במהלך היום יהיו מתוקתקים, טעימים ובריאים. אנחנו דואגים שהמקרר תמיד יהיה מלא במוצרים טריים: לחמים חמים מהמאפייה, מוצרי חלב איכותיים, פירות וירקות רעננים, מאפים מעולים וכל מה שצריך כדי שהיום שלכם יתחיל בצורה הטובה ביותר.
+                </p>
+                <a href="#explore-menu" className="cta-button">הזמינו עכשיו</a>
+            </div>
+            <div className="header-image">
+                <img src="https://via.placeholder.com/600x400?text=Delivery+Icon" alt="Delivery vehicle" />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;
