@@ -8,6 +8,7 @@ export const connectDB = async () => {
       ssl: true, 
     });
     console.log("DB Connected");
+    console.log(`Connected to DB: ${mongoose.connection.name}`);
   } catch (err) {
     console.error("Error connecting to DB:", err);
   }

@@ -13,37 +13,31 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
 
-// Check if running in development or production
 const isDev = process.env.NODE_ENV === 'development';
 
-// Set CORS origin dynamically based on environment
 let allowedOrigins;
 if (isDev) {
   allowedOrigins = ['http://localhost:5173', 'http://localhost:5174','http://localhost:5175']; 
 } else {
-  allowedOrigins = [process.env.FRONTEND_URL]; // Allow the production frontend URL
+  allowedOrigins = [process.env.FRONTEND_URL]; 
 }
 
-// CORS configuration
 app.use(cors({
   origin: function (origin, callback) {
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);  // Allow the origin
+      callback(null, true);  
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
   methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type, Authorization, token', // Add 'token' here to allow the token header
+  allowedHeaders: 'Content-Type, Authorization, token', 
 }));
 
-// Middlewares
 app.use(express.json());
 
-// Database connection
 connectDB();
 
-// API routes
 app.use("/api/user", userRouter);
 app.use("/api/food", foodRouter);
 app.use("/images", express.static('uploads'));
@@ -56,10 +50,8 @@ console.log("/api/food");
 console.log("/api/cart");
 console.log("/api/order");
 
-// Root route
 app.get("/", (req, res) => {
     res.send("API Working");
 });
 
-// Start the server
 app.listen(port, () => console.log(`Server started on http://localhost:${port}`));
