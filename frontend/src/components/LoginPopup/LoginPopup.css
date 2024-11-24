@@ -1,4 +1,4 @@
-.login-popup{
+.login-popup {
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -6,9 +6,11 @@
     background-color: #00000090;
     display: grid;
 }
-.login-popup-container{
+
+.login-popup-container {
     place-self: center;
-    width: max(23vw,330px);
+    direction: rtl;
+    width: max(23vw, 330px);
     color: #808080;
     background-color: white;
     display: flex;
@@ -19,28 +21,50 @@
     font-size: 14px;
     animation: fadeIn 0.5s;
 }
-.login-popup-title{
+
+.login-popup-title {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     color: black;
+    width: 100%;
+    margin-right: 20px;
+    position: relative; /* Required for absolute positioning of the "X" */
 }
-.login-popup-title img{
+
+.login-popup-title img {
     width: 16px;
     cursor: pointer;
+    position: absolute; /* Positions the "X" in the top-left corner */
+    left: 10px; /* Adjust the position from the left */
+    top: 10px;  /* Adjust the position from the top */
 }
-.login-popup-inputs{
+
+.login-popup-inputs {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.login-popup-inputs input{
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Reduced gap between label and input */
+}
+
+.input-container label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.login-popup-inputs input {
     outline: none;
     border: 1px solid #C9C9C9;
     padding: 10px;
     border-radius: 4px;
+    font-size: 14px; /* Ensures input font size matches labels */
 }
-.login-popup-container button{
+
+.login-popup-container button {
     border: none;
     padding: 10px;
     border-radius: 4px;
@@ -49,19 +73,19 @@
     font-size: 15px;
     cursor: pointer;
 }
-.login-popup-condition{
+
+.login-popup-condition {
     display: flex;
     align-items: start;
     gap: 8px;
     margin-top: -15px;
 }
 
-.login-popup-condition input{
+.login-popup-condition input {
     margin-top: 5px;
 }
 
-
-.login-popup p span{
+.login-popup p span {
     color: goldenrod;
     font-weight: 500;
     cursor: pointer;

@@ -1,5 +1,6 @@
 .my-orders{
 margin: 120px 0px; 
+direction: rtl;
 }
 .my-orders .container{
     display: flex;
