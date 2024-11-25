@@ -23,7 +23,9 @@ const Navbar = ({ setShowLogin }) => {
       <ul className="navbar-menu">
         <a href='#explore-menu' onClick={() => setMenu("menu")} className={`${menu === "menu" ? "active" : ""}`}>מוצרים שלנו</a>
         <a href='#footer' onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active" : ""}`}>דברו איתנו</a>
-      </ul>
+        <Link to="/build-meal" onClick={() => setMenu("build-meal")} className={`${menu === "build-meal" ? "active" : ""}`}>
+    לבנות הארוחה שלי
+  </Link>        </ul>
       <div className="navbar-right">
   <Link to='/cart' className='navbar-search-icon'>
     <img src={assets.basket_icon} alt="" />

@@ -6,6 +6,7 @@ import userRouter from './routes/userRoute.js';
 import foodRouter from './routes/foodRoute.js';
 import cartRouter from './routes/cartRoute.js';
 import orderRouter from './routes/orderRoute.js';
+import buildMealRouter from './routes/buildMealRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -43,12 +44,14 @@ app.use("/api/food", foodRouter);
 app.use("/images", express.static('uploads'));
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
+app.use("/api/build-meal", buildMealRouter);
 
 console.log("API Routes Registered:");
 console.log("/api/user");
 console.log("/api/food");
 console.log("/api/cart");
 console.log("/api/order");
+console.log("/api/build-meal");
 
 app.get("/", (req, res) => {
     res.send("API Working");
