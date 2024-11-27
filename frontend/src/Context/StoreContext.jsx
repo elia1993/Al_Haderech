@@ -33,25 +33,23 @@ const StoreContextProvider = (props) => {
         if (token) {
           try {
             await axios.post(
-              `${url}/api/cart/add`, 
-              { 
-                itemId,
-                bento,
-                userId: localStorage.getItem('userId') 
-              },
-              { headers: { token } }
-            );
+                `${url}/api/cart/add`, 
+                { 
+                  itemId,
+                  bento,
+                  userId: localStorage.getItem('userId') 
+                },
+                { headers: { token } }
+              )
       
             await loadCartData(token);  
           } catch (error) {
-            console.error("Failed to add bento to cart:", error);
+            console.error("Failed to add bento to cart:", error.response?.data || error.message);
             setBentoItems((prev) => prev.filter((b) => b.itemId !== itemId));
-            alert("Failed to add bento to cart. Please try again.");
+            alert(`Failed to add bento: ${error.response?.data?.message || "Unknown error"}`);
           }
         }
       };
-      
-    
 
       const removeFromCart = async (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
