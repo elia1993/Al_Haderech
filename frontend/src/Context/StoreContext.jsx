@@ -53,34 +53,12 @@ const StoreContextProvider = (props) => {
       
     
 
-  // Remove item (food or bento) from the cart
-  const removeFromCart =async (itemId) => {
-    try {
-      if (!token) {
-        console.error("Token is missing. Cannot proceed with the request.");
-        return;
-      }
-  
-      // Call backend to remove the item
-      const response = await axios.delete(`${url}/api/bentos/${itemId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-  
-      console.log("Bento deleted:", response.data);
-  
-      if (response.data.success) {
-        console.log("Bento removed successfully:", response.data.message);
-  
-        await loadCartData(token);  
-    } else {
-        console.error("Failed to remove Bento:", response.data.message);
-      }
-    } catch (error) {
-      console.error("Error removing Bento:", error.response?.data || error.message);
-    }
-  };
+      const removeFromCart = async (itemId) => {
+        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+        if (token) {
+            await axios.post(url + "/api/cart/remove", { itemId }, { headers: { token } });
+        }
+    };
 
    // Calculate the total cart amount
    const getTotalCartAmount = () => {
