@@ -7,7 +7,7 @@ const ExploreMenu = ({ category, setCategory }) => {
 
   // Check if menu_list is defined and is an array before rendering
   if (!Array.isArray(menu_list)) {
-    return <p>Loading menu...</p>; // Optionally show a loading message
+    return <p></p>; // Optionally show a loading message
   }
 
   return (
