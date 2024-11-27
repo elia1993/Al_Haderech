@@ -33,7 +33,7 @@ const StoreContextProvider = (props) => {
         if (token) {
           try {
             await axios.post(
-              `${url}/api/cart/add`, 
+              url +"/api/cart/add", 
               { 
                 itemId,
                 bento,
