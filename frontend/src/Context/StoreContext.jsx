@@ -6,7 +6,6 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
     const url = import.meta.env.VITE_API_URL || "http://localhost:4000";
-    console.log(url);
     const [food_list, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
     const [bentoItems, setBentoItems] = useState([]); 
@@ -89,11 +88,11 @@ const StoreContextProvider = (props) => {
         const response = await axios.get(`${url}/api/food/list`);
         setFoodList(response.data.data);
     };
-/*
+
  // Fetch Bento items when the component mounts (or when userId changes)
  const fetchBentoItems = async () => {
     try {
-      const response = await axios.get(`${url}/api/bentos`, {
+      const response = await axios.get(`${url}/api/bentos/GetBentos`, {
         params: { userId: localStorage.getItem("userId") },
       });
       if (response.data.success) {
@@ -103,7 +102,7 @@ const StoreContextProvider = (props) => {
       console.error("Error fetching Bento items", error);
     }
   };
-*/
+
   // Fetch cart data (food and bento items)
   const loadCartData = async (token) => {
     try {
