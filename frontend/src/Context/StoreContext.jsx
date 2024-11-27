@@ -89,7 +89,7 @@ const StoreContextProvider = (props) => {
         const response = await axios.get(`${url}/api/food/list`);
         setFoodList(response.data.data);
     };
-
+/*
  // Fetch Bento items when the component mounts (or when userId changes)
  const fetchBentoItems = async () => {
     try {
@@ -103,7 +103,7 @@ const StoreContextProvider = (props) => {
       console.error("Error fetching Bento items", error);
     }
   };
-
+*/
   // Fetch cart data (food and bento items)
   const loadCartData = async (token) => {
     try {
