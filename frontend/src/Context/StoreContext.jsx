@@ -32,6 +32,7 @@ const StoreContextProvider = (props) => {
       
         if (token) {
           try {
+            console.log("url" + url);
             await axios.post(
               url +"/api/cart/add", 
               { 
