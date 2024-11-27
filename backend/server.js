@@ -6,7 +6,7 @@ import userRouter from './routes/userRoute.js';
 import foodRouter from './routes/foodRoute.js';
 import cartRouter from './routes/cartRoute.js';
 import orderRouter from './routes/orderRoute.js';
-import buildMealRouter from './routes/buildMealRoutes.js';
+import bentoRouter from './routes/bentoRouter.js';
 
 // Load environment variables
 dotenv.config();
@@ -18,7 +18,7 @@ const isDev = process.env.NODE_ENV === 'development';
 
 let allowedOrigins;
 if (isDev) {
-  allowedOrigins = ['http://localhost:5173', 'http://localhost:5174','http://localhost:5175']; 
+  allowedOrigins = ['http://localhost:5173', 'http://localhost:5174','http://localhost:5176']; 
 } else {
   allowedOrigins = [process.env.FRONTEND_URL]; 
 }
@@ -44,14 +44,13 @@ app.use("/api/food", foodRouter);
 app.use("/images", express.static('uploads'));
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
-app.use("/api/build-meal", buildMealRouter);
+app.use("/api/bentos", bentoRouter);
 
 console.log("API Routes Registered:");
 console.log("/api/user");
 console.log("/api/food");
 console.log("/api/cart");
 console.log("/api/order");
-console.log("/api/build-meal");
 
 app.get("/", (req, res) => {
     res.send("API Working");

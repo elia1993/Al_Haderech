@@ -65,7 +65,7 @@ h1 {
 }
 
 .option-button {
-  background-color: #ff9800;
+  background-color: rgb(65, 183, 65);
   color: white;
   padding: 10px 20px;
   border: none;
@@ -73,10 +73,6 @@ h1 {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
-}
-
-.option-button:hover {
-  background-color: #f57c00;
 }
 
 .lunch-box-spot1 {
@@ -99,4 +95,10 @@ h1 {
   display: flex;
   gap: 16px;
   justify-content: center;
+}
+.dialog-X {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
 }
