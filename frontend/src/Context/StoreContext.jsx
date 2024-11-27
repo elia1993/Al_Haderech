@@ -93,7 +93,7 @@ const StoreContextProvider = (props) => {
  // Fetch Bento items when the component mounts (or when userId changes)
  const fetchBentoItems = async () => {
     try {
-      const response = await axios.get("/api/bentos", {
+      const response = await axios.get(`${url}/api/bentos`, {
         params: { userId: localStorage.getItem("userId") },
       });
       if (response.data.success) {
