@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
     const url = import.meta.env.VITE_API_URL || "http://localhost:4000";
-
+    console.log(url);
     const [food_list, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
     const [bentoItems, setBentoItems] = useState([]); 
@@ -32,9 +32,8 @@ const StoreContextProvider = (props) => {
       
         if (token) {
           try {
-            console.log("url" + url);
             await axios.post(
-              url +"/api/cart/add", 
+              `${url}/api/cart/add`, 
               { 
                 itemId,
                 bento,
