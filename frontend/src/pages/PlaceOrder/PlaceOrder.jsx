@@ -158,17 +158,12 @@ const PlaceOrder = () => {
                     </div>
                 </div>
                 <div className="payment">
-                    <h2>Payment Method</h2>
-                    <div onClick={() => setPayment("cod")} className="payment-option">
-                        <img src={payment === "cod" ? assets.checked : assets.un_checked} alt="" />
-                        <p>COD ( Cash on delivery )</p>
-                    </div>
-                    <div onClick={() => setPayment("stripe")} className="payment-option">
-                        <img src={payment === "stripe" ? assets.checked : assets.un_checked} alt="" />
-                        <p>Stripe ( Credit / Debit )</p>
-                    </div>
+                <a className='place-order-submit' href="https://www.bitpay.co.il/app/me/7C724568-7F69-1681-85F9-7F3EC00EE4629598">
+  לתשלום <strong>Bit</strong>
+</a>
                 </div>
-                <button className='place-order-submit' type='submit'>{payment==="cod"?"Place Order":"Proceed To Payment"}</button>
+                <div></div>
+
             </div>
         </form>
     )
