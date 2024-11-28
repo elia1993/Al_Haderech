@@ -79,10 +79,10 @@ const BuildMeal = () => {
     <div className="meal-main-container">
       <h1>לבנות הארוחה שלי</h1>
       <div className="box-container">
-        <Box sx={{ minWidth: 150 }}>
+        <Box sx={{ minWidth: 100 }}>
           <FormControl fullWidth>
             <InputLabel variant="standard" htmlFor="main-dish-select">
-              בחירה לאפשרות 1
+              בחירה 1
             </InputLabel>
             <NativeSelect
               defaultValue={null}
@@ -105,10 +105,10 @@ const BuildMeal = () => {
           </FormControl>
         </Box>
 
-        <Box sx={{ minWidth: 150 }}>
+        <Box sx={{ minWidth: 100 }}>
           <FormControl fullWidth>
             <InputLabel variant="standard" htmlFor="spot2-select">
-              בחירה לאפשרות 2
+              בחירה 2
             </InputLabel>
             <NativeSelect
               defaultValue=""
@@ -131,10 +131,10 @@ const BuildMeal = () => {
           </FormControl>
         </Box>
 
-        <Box sx={{ minWidth: 150 }}>
+        <Box sx={{ minWidth: 100 }}>
           <FormControl fullWidth>
-            <InputLabel variant="standard" htmlFor="spot3-select">
-              בחירה לאפשרות 3
+            <InputLabel variant="standard" htmlFor="spot3-select" >
+              בחירה 3
             </InputLabel>
             <NativeSelect
               defaultValue=""
@@ -162,17 +162,17 @@ const BuildMeal = () => {
       <div className="food-container">
         {/* Spot 1 */}
         <div className={`lunch-box-spot1 ${spot1 ? 'filled' : ''}`} style={{ backgroundImage: `url(${spot1?.image})` }}>
-          {!spot1 && 'אפשרות 1'}
+          {!spot1 && 'בחירה 1'}
         </div>
 
         {/* Spot 2 */}
         <div className={`lunch-box-spot2 ${spot2 ? 'filled' : ''}`} style={{ backgroundImage: `url(${spot2?.image})` }}>
-          {!spot2 && 'אפשרות 2'}
+          {!spot2 && 'בחירה 2'}
         </div>
 
         {/* Spot 3 */}
         <div className={`lunch-box-spot3 ${spot3 ? 'filled' : ''}`} style={{ backgroundImage: `url(${spot3?.image})` }}>
-          {!spot3 && 'אפשרות 3'}
+          {!spot3 && 'בחירה 3'}
         </div>
       </div>
 

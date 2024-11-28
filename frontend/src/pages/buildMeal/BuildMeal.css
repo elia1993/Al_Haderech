@@ -15,6 +15,7 @@
   justify-content: center; 
   padding: 20px;
 }
+
 .food-container {
   display: grid; /* Enable grid layout */
   grid-template-columns: [column1-start] 10% [column1-end column2-start]32% [column2-end column3-start] 5% [column3-end column-4start]37% [column4-end column5-start] auto [column5-end];
