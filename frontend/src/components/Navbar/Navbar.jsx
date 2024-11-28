@@ -6,9 +6,10 @@ import { StoreContext } from '../../Context/StoreContext'
 
 const Navbar = ({ setShowLogin }) => {
 
-  const [menu, setMenu] = useState("home");
+  const [menu, setMenu,] = useState("home");
   const { getTotalCartAmount, token ,setToken } = useContext(StoreContext);
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -18,14 +19,29 @@ const Navbar = ({ setShowLogin }) => {
 
   return (  
     <div className='navbar'>
-      {/* <Link to='/'><img className='logo' src={assets.logo} alt="" /></Link> */}
       <Link to='/'><p className='title'>Al Haderech | על הדרך </p></Link>
-      <ul className="navbar-menu">
-        <a href='#explore-menu' onClick={() => setMenu("menu")} className={`${menu === "menu" ? "active" : ""}`}>מוצרים שלנו</a>
-        <a href='#footer' onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active" : ""}`}>דברו איתנו</a>
-        <Link to="/build-meal" onClick={() => setMenu("build-meal")} className={`${menu === "build-meal" ? "active" : ""}`}>
-    לבנות הארוחה שלי
-  </Link>        </ul>
+  <button className="navbar-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+    ☰
+  </button>
+  <ul className={`navbar-menu ${menuOpen ? "open" : ""}`}>
+  <a
+  href="#food-display"
+  onClick={(e) => {
+    e.preventDefault(); 
+    setMenu("menu");
+    document.getElementById("food-display").scrollIntoView({ behavior: "smooth" });
+  }}
+  className={`${menu === "menu" ? "active" : ""}`}
+>
+  מוצרים שלנו
+</a>
+    <a href="#footer" onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active" : ""}`}>
+      דברו איתנו
+    </a>
+    <Link to="/build-meal" onClick={() => setMenu("build-meal")} className={`${menu === "build-meal" ? "active" : ""}`}>
+      לבנות הארוחה שלי
+    </Link>
+  </ul>
       <div className="navbar-right">
   <Link to='/cart' className='navbar-search-icon'>
     <img src={assets.basket_icon} alt="" />

@@ -1,17 +1,17 @@
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    direction: rtl; 
-    position: fixed; 
-    top: 0; 
-    left: 0;  
-    width: 100%; 
-    z-index: 1000;  
-    background-color: #fff; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
-}
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    direction: rtl;
+  }
 
 .navbar .logo {
     width: 150px;
@@ -27,14 +27,42 @@
     display: flex;
     list-style: none;
     gap: 20px;
-    color: #49557E;
     font-size: 18px;
-}
+    color: #49557E;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-menu.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #5472e1;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateX(0);
+  }
 
-.navbar-menu .active {
-    padding-bottom: 2px;
+  .navbar-menu a {
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+  .navbar-menu .active {
     border-bottom: 2px solid #49557E;
-}
+  }
+  
+  .navbar-toggle {
+    display: none;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
 
 .navbar-right {
     display: flex;
@@ -121,9 +149,16 @@
     }
 
     .navbar-menu {
-        gap: 20px;
-        font-size: 17px;
-    }
+        display: none;
+      }
+    
+      .navbar-menu.open {
+        display: flex;
+      }
+    
+      .navbar-toggle {
+        display: block;
+      }
 
     .navbar-right {
         gap: 30px;
