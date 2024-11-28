@@ -8,7 +8,7 @@ const FoodDisplay = ({ category }) => {
 
   return (
     <div className="food-display" id="food-display">
-    <h2>מנות שלנו</h2>
+    <h2>תפריט</h2>
     <div className="food-display-list">
       {food_list
         .filter(item => item.category !== 'box' && item.category !== 'small_dish') // Exclude unwanted categories
