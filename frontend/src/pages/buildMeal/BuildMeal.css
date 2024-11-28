@@ -102,3 +102,56 @@ h1 {
   align-items: center; 
   width: 100%; 
 }
+@media screen and (max-width: 768px) {
+  .meal-main-container {
+    padding: 10px;
+  }
+
+  .food-container {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: [column1-start] 7% [column1-end column2-start] 32% [column2-end column3-start] 5% [column3-end column-4start] 38% [column4-end column5-start] auto [column5-end];
+    grid-template-rows: [row1-start] 15% [row1-end row2-start] 31% [row2-end row3-start] 0% [row3-end row4-start] 28% [row4-end row5-start] auto [row5-end];
+    gap: 10px; /* Add space between the cells */
+    background-image: url(/src/pages/buildMeal/media/container.png); /* Background image */
+    background-position: center;
+    height: 56vh;
+    width: 40vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    font-weight: bolder;
+    color: rgb(250, 14, 14);
+    justify-items: center;
+    align-items: center;
+  }
+
+  .lunch-box-spot1 {
+    grid-column: 2 / span 1; 
+    grid-row: 2 / span 3; 
+  }
+  
+  .lunch-box-spot2 {
+    grid-column: 4; 
+    grid-row: 2; 
+  }
+  
+  .lunch-box-spot3 {
+    grid-column: 4; 
+    grid-row: 4; 
+  }
+
+  .option-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .food-container {
+    height: 40vh !important;
+  }
+}
