@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import InfoIcon from '@mui/icons-material/Info'; 
 import Tooltip from '@mui/material/Tooltip'; 
+import { Box, Typography, Modal } from '@mui/material';
 
 const PlaceOrder = () => {
 
@@ -28,7 +29,14 @@ const PlaceOrder = () => {
     });
 
     const { getTotalCartAmount, token, food_list, cartItems, url, setCartItems, currency, deliveryCharge } = useContext(StoreContext);
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const handleOpen = () => {
+        setIsModalOpen(true);
+      };
+    
+    const handleClose = () => {
+    setIsModalOpen(false);
+    };
     const navigate = useNavigate();
 
     const onChangeHandler = (event) => {
@@ -183,29 +191,50 @@ const PlaceOrder = () => {
                     <label htmlFor="deliveryDate" style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
 
                         תאריך משלוח
-                        <Tooltip 
-    title="אנא בחר תאריך משלוח מחר או מאוחר יותר" 
-    arrow 
-    describeChild
-    componentsProps={{
-        tooltip: {
+                        <div>
+      <Tooltip 
+        title="אנא בחר תאריך משלוח מחר או מאוחר יותר" 
+        arrow 
+        componentsProps={{
+          tooltip: {
             sx: {
-                bgcolor: '#19beff',
-                fontSize: '1rem', 
-                padding: '8px 12px', 
-            }
-        }
-    }}
-    onClick={(e) => {
-        e.stopPropagation(); 
-    }}
->
-    <InfoIcon 
-        fontSize="small" 
-        color="action" 
-        style={{cursor: 'pointer', color:'#19beff'}} 
-    />
-</Tooltip>
+              bgcolor: '#19beff',
+              fontSize: '0.875rem',
+              padding: '8px 12px',
+            },
+          },
+        }}
+      >
+        <InfoIcon 
+          fontSize="small" 
+          color="action" 
+          style={{ cursor: 'pointer', color: '#19beff' }}
+          onClick={handleOpen} // Trigger modal for mobile
+        />
+      </Tooltip>
+
+      {/* Modal for mobile */}
+      <Modal open={isModalOpen} onClose={handleClose}>
+        <Box 
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            bgcolor: 'white',
+            borderRadius: '8px',
+            boxShadow: 24,
+            p: 3,
+            textAlign: 'center',
+            width: '80%',
+          }}
+        >
+          <Typography sx={{ fontSize: '0.875rem', color: '#19beff' }}>
+            אנא בחר תאריך משלוח מחר או מאוחר יותר
+          </Typography>
+        </Box>
+      </Modal>
+    </div>
                     </label>
                     <input
                         type="date"
