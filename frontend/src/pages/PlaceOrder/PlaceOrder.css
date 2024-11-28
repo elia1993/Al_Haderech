@@ -31,8 +31,23 @@
     width: 100%;
     max-width: max(40%,500px);
 }
-.payment-button{
-    
+
+.place-order-left select {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #C5C5C5;
+    border-radius: 4px;
+    outline-color: #19beff;
+}
+.place-order-left input,
+.place-order-left select {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #C5C5C5;
+    border-radius: 4px;
+    outline-color: #19beff;
 }
 .place-order-submit{
     margin-top: 50px;
@@ -66,6 +81,47 @@
 }
 .payment .payment-option:hover{
     background-color:  #ffe7de;
+}
+
+.payment-method input[type="radio"] {
+    /* Remove default styles */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #C5C5C5;
+    outline-color: #19beff;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.payment-method input[type="radio"]:checked {
+    background-color: #19beff;
+    border-color: #19beff;
+}
+
+.payment-method input[type="radio"]:focus {
+    outline: 2px solid #19beff;
+}
+
+/* Optionally style the labels to look like buttons */
+.payment-method label {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-right: 20px;  /* Add padding between the radio button and the text */
+}
+
+.payment-method label + label {
+    margin-top: 10px; /* Adds space between the two radio buttons */
+}
+.payment-method label:hover {
+    background-color: #ffe7de;
 }
 
 @media (max-width:700px) {
