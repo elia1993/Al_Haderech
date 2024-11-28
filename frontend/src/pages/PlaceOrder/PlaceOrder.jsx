@@ -4,6 +4,8 @@ import { StoreContext } from '../../Context/StoreContext';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import InfoIcon from '@mui/icons-material/Info'; 
+import Tooltip from '@mui/material/Tooltip'; 
 
 const PlaceOrder = () => {
 
@@ -50,7 +52,17 @@ const PlaceOrder = () => {
         
         return slots;
     }
+    const handlePlaceOrder = () => {
+        // Simulate a warning trigger
+        const isError = Math.random() > 0.5;
 
+        if (isError) {
+            setIsWarningVisible(true);
+        } else {
+            setIsWarningVisible(false);
+            alert('Order placed successfully!');
+        }
+    };
     const placeOrder = async (e) => {
         e.preventDefault();
         let orderItems = [];
@@ -166,20 +178,41 @@ const PlaceOrder = () => {
                     <label htmlFor="notes">הערות לשליח</label>
                     <input type="text" id="notes" name='notes' onChange={onChangeHandler} value={data.notes} placeholder='הערות לשליח'/>
                 </div>
-
                 <div className="multi-field">
-                    <div className="input-group">
-                        <label htmlFor="deliveryDate">תאריך משלוח</label>
-                        <input
-                            type="date"
-                            id="deliveryDate"
-                            name="deliveryDate"
-                            onChange={onChangeHandler}
-                            value={data.deliveryDate}
-                            min={tomorrowDate} 
-                            required
-                        />
-                    </div>
+                <div className="input-group">
+                    <label htmlFor="deliveryDate" style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
+
+                        תאריך משלוח
+                        <Tooltip 
+    title="אנא בחר תאריך משלוח מחר או מאוחר יותר" 
+    arrow 
+    componentsProps={{
+        tooltip: {
+            sx: {
+                bgcolor: '#19beff',
+                fontSize: '1rem', 
+                padding: '8px 12px', 
+            }
+        }
+    }}
+>
+    <InfoIcon 
+        fontSize="small" 
+        color="action" 
+        style={{cursor: 'pointer', color:'#19beff'}} 
+    />
+</Tooltip>
+                    </label>
+                    <input
+                        type="date"
+                        id="deliveryDate"
+                        name="deliveryDate"
+                        onChange={onChangeHandler}
+                        value={data.deliveryDate}
+                        min={tomorrowDate} 
+                        required
+                    />
+                </div>
                     <div className="input-group">
                         <label htmlFor="deliveryTime">שעת משלוח</label>
                         <select

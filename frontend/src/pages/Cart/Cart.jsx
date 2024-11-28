@@ -88,8 +88,8 @@ const Cart = () => {
           <div>
             <p>קוד קופון</p>
             <div className='cart-promocode-input'>
-              <input type="text" placeholder='promo code' />
-              <button>שלח</button>
+              <input type="text" placeholder='קוד קופון' ></input>
+                           <button>שלח</button>
             </div>
           </div>
         </div>
