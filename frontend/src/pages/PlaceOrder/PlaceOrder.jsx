@@ -30,20 +30,16 @@ const PlaceOrder = () => {
 
     const { getTotalCartAmount, token, food_list, cartItems, url, setCartItems, currency, deliveryCharge } = useContext(StoreContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const handleOpen = () => {
-        setIsModalOpen(true);
-      };
-    
-    const handleClose = () => {
-    setIsModalOpen(false);
-    };
-    const navigate = useNavigate();
+    const handleOpen = () => setIsModalOpen(true);
+    const handleClose = () => setIsModalOpen(false);
 
     const onChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setData(data => ({ ...data, [name]: value }));
-    }
+        setData((prevData) => ({ ...prevData, [name]: value }));
+    };
+    
+    const navigate = useNavigate();
 
     const getTimeSlots = () => {
         const slots = [];
@@ -191,7 +187,7 @@ const PlaceOrder = () => {
                     <label htmlFor="deliveryDate" style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
 
                         תאריך משלוח
-                        <div>
+                        <div style={{marginTop:'-3px'}}>
       <Tooltip 
         title="אנא בחר תאריך משלוח מחר או מאוחר יותר" 
         arrow 
@@ -212,28 +208,26 @@ const PlaceOrder = () => {
           onClick={handleOpen} // Trigger modal for mobile
         />
       </Tooltip>
-
-      {/* Modal for mobile */}
       <Modal open={isModalOpen} onClose={handleClose}>
-        <Box 
-          sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            bgcolor: 'white',
-            borderRadius: '8px',
-            boxShadow: 24,
-            p: 3,
-            textAlign: 'center',
-            width: '80%',
-          }}
-        >
-          <Typography sx={{ fontSize: '0.875rem', color: '#19beff' }}>
-            אנא בחר תאריך משלוח מחר או מאוחר יותר
-          </Typography>
-        </Box>
-      </Modal>
+                    <Box
+                        sx={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            bgcolor: '#19beff',
+                            borderRadius: '8px',
+                            boxShadow: 24,
+                            p: 3,
+                            textAlign: 'center',
+                            width: '80%',
+                        }}
+                    >
+                        <Typography sx={{ fontSize: '1rem', color: 'white' }}>
+                            אנא בחר תאריך משלוח מחר או מאוחר יותר
+                        </Typography>
+                    </Box>
+                </Modal>
     </div>
                     </label>
                     <input
