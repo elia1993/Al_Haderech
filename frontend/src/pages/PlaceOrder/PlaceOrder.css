@@ -123,9 +123,7 @@
 .payment-method label:hover {
     background-color: #ffe7de;
 }
-.svg{
-    color:#19beff;
-}
+
 @media (max-width:700px) {
     .place-order{
         flex-direction: column;

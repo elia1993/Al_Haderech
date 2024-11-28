@@ -186,6 +186,7 @@ const PlaceOrder = () => {
                         <Tooltip 
     title="אנא בחר תאריך משלוח מחר או מאוחר יותר" 
     arrow 
+    describeChild
     componentsProps={{
         tooltip: {
             sx: {
@@ -194,6 +195,9 @@ const PlaceOrder = () => {
                 padding: '8px 12px', 
             }
         }
+    }}
+    onClick={(e) => {
+        e.stopPropagation(); 
     }}
 >
     <InfoIcon 
