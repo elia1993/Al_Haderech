@@ -3,8 +3,24 @@ import { Link, useNavigate } from 'react-router-dom'
 import './Footer.css'
 import { assets } from '../../assets/assets'
 
-
 const Footer = () => {
+
+  const navigate = useNavigate();
+
+  const handleOrderNow = () => {
+      // If not on the home page, navigate to home first
+      if (window.location.pathname !== '/') {
+          navigate('/');
+      }
+
+      // Use setTimeout to ensure the page has navigated/rendered
+      setTimeout(() => {
+          const foodDisplayElement = document.getElementById('food-display');
+          if (foodDisplayElement) {
+              foodDisplayElement.scrollIntoView({ behavior: 'smooth' });
+          }
+      }, 100);
+  };
   return (
     <div className='footer' id='footer'>
       <div className="footer-content">
@@ -17,8 +33,8 @@ const Footer = () => {
             <h2>אתר</h2>
             <ul>
                 <a href='#'><li>אתר הבית</li></a>
-                <a href='#explore-menu'><li>מוצרים שלנו</li></a>
-            </ul>
+                <a href='#' onClick={handleOrderNow}><li>המוצרים שלנו</li></a>
+                </ul>
         </div>
         <div className="footer-content-right">
             <h2>דברו איתנו</h2>

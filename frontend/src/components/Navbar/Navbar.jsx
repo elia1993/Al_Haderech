@@ -55,7 +55,7 @@ const Navbar = ({ setShowLogin }) => {
         {/* Conditionally hide this link if we are on the "build-meal" page */}
         {location.pathname !== "/build-meal" && (
           <a
-            href="#food-display"
+            href="#explore-menu"
             onClick={(e) => {
               e.preventDefault();
               handleMenuClick("menu", "food-display");
