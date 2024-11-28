@@ -24,24 +24,35 @@ const Navbar = ({ setShowLogin }) => {
     ☰
   </button>
   <ul className={`navbar-menu ${menuOpen ? "open" : ""}`}>
-  <a
-  href="#food-display"
-  onClick={(e) => {
-    e.preventDefault(); 
-    setMenu("menu");
-    document.getElementById("food-display").scrollIntoView({ behavior: "smooth" });
-  }}
-  className={`${menu === "menu" ? "active" : ""}`}
->
-  מוצרים שלנו
-</a>
-    <a href="#footer" onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active" : ""}`}>
-      דברו איתנו
-    </a>
-    <Link to="/build-meal" onClick={() => setMenu("build-meal")} className={`${menu === "build-meal" ? "active" : ""}`}>
-      לבנות הארוחה שלי
-    </Link>
-  </ul>
+      {/* Conditionally hide this link if we are on the "build-meal" page */}
+      {location.pathname !== "/build-meal" && (
+        <a
+          href="#food-display"
+          onClick={(e) => {
+            e.preventDefault();
+            handleMenuClick("menu", "food-display");
+          }}
+          className={`${menu === "menu" ? "active" : ""}`}
+        >
+          מוצרים שלנו
+        </a>
+      )}
+      <a
+        href="#footer"
+        onClick={() => handleMenuClick("contact")}
+        className={`${menu === "contact" ? "active" : ""}`}
+      >
+        דברו איתנו
+      </a>
+      <Link
+        to="/build-meal"
+        onClick={() => handleMenuClick("build-meal")}
+        className={`${menu === "build-meal" ? "active" : ""}`}
+      >
+        לבנות הארוחה שלי
+      </Link>
+    </ul>
+
       <div className="navbar-right">
   <Link to='/cart' className='navbar-search-icon'>
     <img src={assets.basket_icon} alt="" />

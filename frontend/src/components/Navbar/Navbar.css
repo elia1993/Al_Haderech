@@ -48,6 +48,7 @@
 .navbar-menu a {
     padding: 10px 20px;
     text-align: center;
+    color: #19beff;
 }
   
 .navbar-menu .active {
@@ -80,7 +81,7 @@
     position: absolute;
     min-width: 10px;
     min-height: 10px;
-    background-color: #5472e1;
+    background-color: #19beff;
     border-radius: 5px;
     top: -8px;
     left: -8px;
@@ -90,7 +91,7 @@
     background: transparent;
     font-size: 16px;
     color: #49557E;
-    border: 1px solid #5472e1;
+    border: 1px solid #19beff;
     padding: 10px 30px;
     border-radius: 50px;
     cursor: pointer;
@@ -124,7 +125,7 @@
 }
 
 .navbar-profile-dropdown li:hover {
-    color: #5472e1;
+    color: #19beff;
 }
 
 .navbar-profile:hover .navbar-profile-dropdown {
@@ -134,7 +135,7 @@
     background-color: #fff2ef;
     padding: 12px 25px;
     border-radius: 4px;
-    border: 1px solid #5472e1;
+    border: 1px solid #19beff;
     outline: 2px solid white;
     list-style: none;
 }
