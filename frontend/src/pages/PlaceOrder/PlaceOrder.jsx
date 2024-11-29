@@ -28,11 +28,10 @@ const PlaceOrder = () => {
         deliveryTime: "" 
     });
 
-    const { getTotalCartAmount, token, food_list, cartItems, url, setCartItems, currency, deliveryCharge } = useContext(StoreContext);
+    const { getTotalCartAmount, token, food_list, cartItems, url, setCartItems, currency, deliveryCharge,bentoItems } = useContext(StoreContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const handleOpen = () => setIsModalOpen(true);
     const handleClose = () => setIsModalOpen(false);
-
     const onChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -70,42 +69,50 @@ const PlaceOrder = () => {
     const placeOrder = async (e) => {
         e.preventDefault();
         let orderItems = [];
-        food_list.map(((item) => {
+        food_list.map((item) => {
             if (cartItems[item._id] > 0) {
-                let itemInfo = item;
+                let itemInfo = { ...item };
                 itemInfo["quantity"] = cartItems[item._id];
                 orderItems.push(itemInfo);
             }
-        }));
-
+        });
+     
         let orderData = {
             address: data,
             items: orderItems,
+            bentoItems:bentoItems,
             amount: getTotalCartAmount() + deliveryCharge,
+            deliveryDate: data.deliveryDate, 
+            deliveryTime: data.deliveryTime
         };
-
+        
         if (payment === "stripe") {
-            let response = await axios.post(url + "/api/order/place", orderData, { headers: { token } });
-            if (response.data.success) {
-                const { session_url } = response.data;
-                window.location.replace(session_url);
+            try {
+                let response = await axios.post(url + "/api/order/place", orderData, { headers: { token } });
+                if (response.data.success) {
+                    const { session_url } = response.data;
+                    window.location.replace(session_url);
+                } else {
+                    toast.error("Something Went Wrong");
+                }
+            } catch (error) {
+                toast.error("Error placing order");
             }
-            else {
-                toast.error("Something Went Wrong");
+        } else {
+            try {
+                let response = await axios.post(url + "/api/order/placecod", orderData, { headers: { token } });
+                if (response.data.success) {
+                    navigate("/myorders");
+                    toast.success(response.data.message);
+                    setCartItems({});
+                } else {
+                    toast.error("Something Went Wrong");
+                }
+            } catch (error) {
+                toast.error("Error placing order");
             }
         }
-        else {
-            let response = await axios.post(url + "/api/order/placecod", orderData, { headers: { token } });
-            if (response.data.success) {
-                navigate("/myorders");
-                toast.success(response.data.message);
-                setCartItems({});
-            }
-            else {
-                toast.error("Something Went Wrong");
-            }
-        }
-    }
+    };
 
     useEffect(() => {
         if (!token) {

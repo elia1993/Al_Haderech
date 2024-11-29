@@ -1,14 +1,16 @@
-.my-orders{
-margin: 120px 0px; 
-direction: rtl;
+.my-orders {
+    margin: 120px 0px;
+    direction: rtl;
 }
-.my-orders .container{
+
+.my-orders .container {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-top: 30px;
 }
-.my-orders-order{
+
+.my-orders-order {
     display: grid;
     grid-template-columns: 0.5fr 2fr 1fr 1fr 2fr 1fr;
     align-items: center;
@@ -18,17 +20,28 @@ direction: rtl;
     color: #454545;
     border: 1px solid #19beff;
 }
-.my-orders-order img{
+
+.my-orders-order img {
     width: 50px;
 }
-.my-orders-order p span{
+
+/* Item and Bento Images Styling */
+.item-image, .bento-image {
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 10px;
+}
+
+.my-orders-order p span {
     color: #19beff;
 }
-.my-orders-order p b{
+
+.my-orders-order p b {
     font-weight: 500;
     color: #454545;
 }
-.my-orders button{
+
+.my-orders button {
     border: none;
     padding: 12px 0px;
     border-radius: 4px;
@@ -36,14 +49,47 @@ direction: rtl;
     cursor: pointer;
     color: #454545;
 }
-@media (max-width:900px) {
-    .my-orders-order{
+
+/* Bento items styling */
+.bento-items {
+    margin-top: 15px;
+    padding-left: 20px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.bento-item {
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.bento-item-details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    
+}
+
+.sub-items {
+    font-size: 13px;
+    color: #19beff;
+}
+.itemName{
+    margin-right:84px;
+    margin-top:-30px;
+}
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .my-orders-order {
         grid-template-columns: 1fr 2fr 1fr;
         row-gap: 5px;
         font-size: 12px;
     }
-    .my-orders-order button{
+    .my-orders-order button {
         font-size: 10px;
     }
-    
 }

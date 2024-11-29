@@ -48,7 +48,6 @@ const Cart = () => {
                     <br />
                     {bento.subItems && bento.subItems.length > 0 ? (
                       bento.subItems.map((subItem, subIndex) => {
-                        console.log(subItem);
                         return (
                           <span key={subItem._id}>
                             {subItem.name}

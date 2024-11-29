@@ -34,7 +34,7 @@ const BuildMeal = () => {
     const overall_price = spot1.price + spot2.price + spot3.price;
     const sub_items = [spot1.name, spot2.name, spot3.name];
     const image = closed_bento;
-    const item = 'קןפסת ארוחת בוקר';
+    const item = 'קופסת ארוחת בוקר';
 
     addBentoToCart({ item: item, image: image, sub_items: sub_items, price: overall_price });
     
@@ -65,6 +65,10 @@ const BuildMeal = () => {
 
   const handleMainDish = (option) => {
     setSpot1(option);
+    if (option.name === 'ביצים') {
+      setIsDropping(true);
+      setTimeout(() => setIsDropping(false), 1500); 
+    }
   };
 
   const handleSelectOption = (spot, option) => {

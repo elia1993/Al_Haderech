@@ -15,6 +15,7 @@ const placeOrder = async (req, res) => {
         const newOrder = new orderModel({
             userId: req.body.userId,
             items: req.body.items,
+            bentoItems: req.body.bentoItems, 
             amount: req.body.amount,
             address: req.body.address
         })
@@ -65,6 +66,7 @@ const placeOrderCod = async (req, res) => {
         const newOrder = new orderModel({
             userId: req.body.userId,
             items: req.body.items,
+            bentoItems: req.body.bentoItems, 
             amount: req.body.amount,
             address: req.body.address,
             payment: true,
