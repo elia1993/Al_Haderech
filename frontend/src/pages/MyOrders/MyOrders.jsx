@@ -17,7 +17,7 @@ const MyOrders = () => {
   useEffect(() => {
     if (token) {
       fetchOrders();
-      const intervalId = setInterval(fetchOrders, 10000); 
+      const intervalId = setInterval(fetchOrders, 10000); // Poll every 10 seconds (adjust as needed)
       return () => clearInterval(intervalId);
     }
   }, [token]);

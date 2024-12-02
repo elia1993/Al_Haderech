@@ -16,3 +16,47 @@
 h2{
     color: #19beff;
 }
+.sorting-menu-icons {
+    display: flex;
+    justify-content: right;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  
+  .sorting-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .sorting-item img {
+    width: 80px;
+    height: 80px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sorting-item.active img {
+    border: 3px solid #19beff; 
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
+  }
+  
+  .sorting-item img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sorting-label {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    direction: rtl; 
+  }
+  
+  .sorting-item.active .sorting-label {
+    color: #19beff; 
+  }
+  
