@@ -51,7 +51,7 @@ app.use("/images", express.static('uploads'));
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/bentos", bentoRouter);
-
+app.use("/api/food/list",foodRouter),
 console.log("API Routes Registered:");
 console.log("/api/user");
 console.log("/api/food");
