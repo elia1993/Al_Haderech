@@ -20,20 +20,26 @@ let allowedOrigins;
 if (isDev) {
   allowedOrigins = ['http://localhost:5179', 'http://localhost:5180','http://localhost:5175']; 
 } else {
-  allowedOrigins = [process.env.FRONTEND_URL]; 
+  allowedOrigins = [
+    process.env.FRONTEND_URL, 
+    process.env.ADMIN_URL,   
+  ];
 }
 
 app.use(cors({
   origin: function (origin, callback) {
+    console.log("Origin:", origin); 
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);  
+      callback(null, true);
     } else {
+      console.error("Blocked by CORS:", origin); 
       callback(new Error('Not allowed by CORS'));
     }
   },
   methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type, Authorization, token', 
+  allowedHeaders: 'Content-Type, Authorization, token',
 }));
+
 
 app.use(express.json());
 
