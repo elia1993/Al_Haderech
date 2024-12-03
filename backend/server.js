@@ -22,7 +22,7 @@ if (isDev) {
 } else {
   allowedOrigins = [
     process.env.FRONTEND_URL, 
-    process.env.ADMIN_URL  
+    process.env.ADMIN_URL,
   ];
 }
 
@@ -51,7 +51,6 @@ app.use("/images", express.static('uploads'));
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/bentos", bentoRouter);
-app.use("/api/food/list",foodRouter);
 
 app.get("/", (req, res) => {
     res.send("API Working");
