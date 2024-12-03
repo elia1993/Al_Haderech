@@ -18,13 +18,19 @@ const isDev = process.env.NODE_ENV === 'development';
 
 let allowedOrigins;
 if (isDev) {
-  allowedOrigins = ['http://localhost:5179', 'http://localhost:5180','http://localhost:5175']; 
+  allowedOrigins = [
+    'http://localhost:5179',
+    'http://localhost:5180',
+    'http://localhost:5175',
+    'http://localhost:5174',  
+  ];
 } else {
   allowedOrigins = [
-    process.env.FRONTEND_URL, 
-    process.env.ADMIN_URL,
+    process.env.FRONTEND_URL,   
+    process.env.ADMIN_URL,      
   ];
 }
+
 
 app.use(cors({
   origin: function (origin, callback) {
