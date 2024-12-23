@@ -16,7 +16,7 @@ import corn from './media/corn.png';
 import labneh from './media/labneh.png';
 import hummus from './media/Hummus.png';
 import potato from './media/potato.png';
-import scrambledEgg from './media/scrambled_egg.png';
+import scrambledEgg from './media/Scrambled_egg.png';
 import avocadoImage from './media/Avocado.png';
 import closed_bento from './media/closed_bento_box.webp';
 import { StoreContext } from '../../Context/StoreContext';
