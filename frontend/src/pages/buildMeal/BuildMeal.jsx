@@ -10,6 +10,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import './BuildMeal.css';
 import eggImage from './media/egg.png';
+import tuna from './media/tuna.png';
+import carrots from './media/carrots.png';
+import corn from './media/corn.png';
+import labneh from './media/labneh.png';
+import hummus from './media/Hummus.png';
+import potato from './media/potato.png';
+import scrambledEgg from './media/scrambled_egg.png';
 import avocadoImage from './media/Avocado.png';
 import closed_bento from './media/closed_bento_box.webp';
 import { StoreContext } from '../../Context/StoreContext';
@@ -24,7 +31,7 @@ const BuildMeal = () => {
   const [openPopup, setOpenPopup] = useState(false);
 
   const { addBentoToCart } = useContext(StoreContext);
-
+  const totalPrice = (spot1?.price || 0) + (spot2?.price || 0) + (spot3?.price || 0);
   const createBentoCartItem = () => {
     if (!spot1 || !spot2 || !spot3) {
       alert('נא לבחור כל התוספות/אפשריות');
@@ -49,20 +56,47 @@ const BuildMeal = () => {
     setSpot3(null);
   };
 
+  /**
+   *  1 egg
+   *  cherry tomato
+   *  cut cucumber
+   *  tomato + cucumber
+   *  yellow cheese (3emek)
+   *  white cheese dip
+   *  begala
+   *  crackers
+   *  4 mini sausage
+   *  orange slices
+   *  mini carrots
+   *  martadila
+   *  cottage
+   */
   const options = [
-    { name: 'Corn', image: '/corn.jpg' },
-    { name: 'Cheese', image: '/cheese.jpg' },
-    { name: 'Tuna', image: '/tuna.jpg' },
+    { name: 'תירס', image: corn, price: 3 },
+    { name: 'טונה', image: tuna,price: 5 },
     { name: 'אבוקדו', image: avocadoImage, price: 5 },
-    { name: 'Bacon', image: '/bacon.jpg' },
-    { name: 'Spinach', image: '/spinach.jpg' },
-    { name: 'Tomato', image: '/tomato.jpg' }
+    { name: 'לבנה', image: labneh, price: 3 },
+    { name: 'תפוח אדמה מבושל', image: potato,price: 2 }
   ];
 
+  /**
+   * 2 eggs + cherry tomato
+   * sandwich - precut / prosot:
+   *    peanut butter
+   *    jam
+   *    yellow cheese
+   *    labani
+   *    nutella
+   *    peanut butter + jam
+   * white rice
+   * sausages
+   */
   const main_dish = [
-    { name: 'ביצים', image: eggImage, price: 10 },
-  ];
+    { name: '3 ביצים' , image: eggImage, price: 8},
+    {name: 'ביצה מקושקשת', image: scrambledEgg, price: 8},
+    {name: 'חומוס', image: hummus, price: 5}
 
+  ];
   const handleMainDish = (option) => {
     setSpot1(option);
     if (option.name === 'ביצים') {
@@ -180,6 +214,9 @@ const BuildMeal = () => {
         </div>
       </div>
 
+      <div className="total-price">
+        <h3>סה״כ: ₪{totalPrice}</h3>
+      </div>
       <button onClick={createBentoCartItem} className="option-button">
         הוספה לעגלה
       </button>

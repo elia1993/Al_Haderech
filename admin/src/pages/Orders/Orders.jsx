@@ -3,14 +3,13 @@ import './Orders.css'
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { assets, url, currency } from '../../assets/assets';
-const API_BASE_URL = import.meta.env.VITE_API_URL; 
 
 const Order = () => {
 
   const [orders, setOrders] = useState([]);
 
   const fetchAllOrders = async () => {
-    const response = await axios.get(`${API_BASE_URL}/api/order/list`)
+    const response = await axios.get(`${url}/api/order/list`)
     if (response.data.success) {
       setOrders(response.data.data.reverse());
     }
@@ -21,7 +20,7 @@ const Order = () => {
 
   const statusHandler = async (event, orderId) => {
     console.log(event, orderId);
-    const response = await axios.post(`${API_BASE_URL}/api/order/status`, {
+    const response = await axios.post(`${url}/api/order/status`, {
       orderId,
       status: event.target.value
     })

@@ -1,12 +1,14 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import Sidebar from './components/Sidebar/Sidebar'
-import { Route, Routes } from 'react-router-dom'
+import React from 'react';
+import Navbar from './components/Navbar/Navbar';
+import Sidebar from './components/Sidebar/Sidebar';
+import { Route, Routes } from 'react-router-dom';
 import Add from './pages/Add/Add'
 import List from './pages/List/List'
 import Orders from './pages/Orders/Orders'
+import Analytics from './pages/Analytics'; 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 const App = () => {
   return (
@@ -20,10 +22,11 @@ const App = () => {
           <Route path="/add" element={<Add />} />
           <Route path="/list" element={<List />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/analytics" element={<Analytics />} /> 
         </Routes>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

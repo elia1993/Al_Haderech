@@ -42,8 +42,12 @@ const Header = () => {
                     הזמינו עכשיו
                 </button>  
                 </div>
+
             <div className="header-image">
+                                {/* 
             <img src="" alt="Delivery vehicle" />
+                    */}
+
             </div>
         </div>
     );

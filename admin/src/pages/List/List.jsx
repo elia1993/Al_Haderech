@@ -4,14 +4,13 @@ import { url, currency } from '../../assets/assets'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL; 
-
 const List = () => {
 
   const [list, setList] = useState([]);
 
   const fetchList = async () => {
-    const response = await axios.get(`${API_BASE_URL}/api/food/list`)
+    const response = await axios.get(`${url}/api/food/list`)
+    console.log(response.data.API_BASE_URL);
     if (response.data.success) {
       setList(response.data.data);
     }
@@ -21,7 +20,7 @@ const List = () => {
   }
 
   const removeFood = async (foodId) => {
-    const response = await axios.post(`${API_BASE_URL}/api/food/remove`, {
+    const response = await axios.post(`${url}/api/food/remove`, {
       id: foodId
     })
     await fetchList();
