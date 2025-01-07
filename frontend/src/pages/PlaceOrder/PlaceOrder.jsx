@@ -168,12 +168,19 @@ const PlaceOrder = () => {
                     </div>
                 </div>
                 <div className="multi-field">
-                    <div className="input-group">
-                        <label htmlFor="city">עיר / ישוב</label>
-                        <input type="text" id="city" name='city' onChange={onChangeHandler} value={data.city} placeholder='Enter your city' required />
-                    </div>
-                </div>
-                
+    <div className="input-group">
+        <label htmlFor="city">עיר / ישוב</label>
+        <input 
+            type="text" 
+            id="city" 
+            name="city" 
+            value="כרמיאל" 
+            disabled 
+            placeholder="Enter your city" 
+            style={{ fontWeight: 'bold' }} 
+        />
+    </div>
+</div>          
                 <div className="multi-field">
                     <div className="input-group">
                         <label htmlFor="zipcode">מיקוד</label>
