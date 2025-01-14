@@ -8,7 +8,7 @@ import drinks from '../../assets/drinks.png';
 const FoodDisplay = () => {
   const { food_list } = useContext(StoreContext);
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [visibleItems, setVisibleItems] = useState(5); // Track the number of visible items
+  const [visibleItems, setVisibleItems] = useState(5); 
 
   const categories = [
     { key: 'All', label: 'All', img: null },
@@ -21,7 +21,7 @@ const FoodDisplay = () => {
   };
 
   const handleLoadMore = () => {
-    setVisibleItems(visibleItems + 5); // Show 5 more items
+    setVisibleItems(visibleItems + 5); 
   };
 
   return (
