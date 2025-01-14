@@ -27,9 +27,8 @@ if (isDev) {
   ];
 } else {
   allowedOrigins = [
-   'https://admin-mc8f.onrender.com',
     process.env.FRONTEND_URL,   
-    process.env.ADMIN_URL,      
+    process.env.VITE_ADMIN_API_URL,      
   ];
 }
 
