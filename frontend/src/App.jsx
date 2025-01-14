@@ -17,7 +17,7 @@ const App = () => {
   const [showLogin, setShowLogin] = useState(false);
 
   const trackVisit = async () => {
-    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:4000" || import.meta.env.VITE_ADMIN_API_URL;
     if (!apiUrl) {
       console.error("API URL is missing in the environment variables!");
     } else {
