@@ -1,54 +1,62 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
-// ... other imports remain the same
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 4000;
 
+// Determine environment
 const isDev = process.env.NODE_ENV === 'development';
+console.log('Environment:', process.env.NODE_ENV);
 
-let allowedOrigins;
-if (isDev) {
-  allowedOrigins = [
-    'http://localhost:5180',
-    'http://localhost:5178',
-    'http://localhost:5173',
-    'http://localhost:5179',  
-  ];
-} else {
-  allowedOrigins = [
-    process.env.FRONTEND_URL,   
-    process.env.ADMIN_URL,
-    'https://admin-mc8f.onrender.com',  // Add your Render domain
-    'http://admin-mc8f.onrender.com'    // Also allow HTTP version
-  ];
-}
+// Define allowed origins based on environment
+const allowedOrigins = isDev 
+  ? [
+      'http://localhost:5173',
+      'http://localhost:5174',
+      'http://localhost:5178',
+      'http://localhost:5179',
+      'http://localhost:5180',
+    ]
+  : [
+      'https://admin-mc8f.onrender.com',
+      'http://admin-mc8f.onrender.com',
+      process.env.FRONTEND_URL,
+      process.env.ADMIN_URL,
+    ];
 
+// Debug logging
+console.log('Allowed Origins:', allowedOrigins);
+
+// CORS configuration
 app.use(cors({
   origin: function (origin, callback) {
-    // Add better logging for debugging
-    console.log("Request origin:", origin);
-    console.log("Allowed origins:", allowedOrigins);
+    console.log('Request Origin:', origin);
     
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) {
       return callback(null, true);
     }
 
-    if (allowedOrigins.indexOf(origin) !== -1) {
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      console.error(`Blocked by CORS: ${origin} is not allowed`);
+      console.error(`CORS blocked origin: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'token', 'Origin', 'Accept'],
-  exposedHeaders: ['Content-Range', 'X-Content-Range']
 }));
 
-// ... rest of your server code remains the same
+// Debug middleware
+app.use((req, res, next) => {
+  console.log('Request Headers:', req.headers);
+  console.log('Request Origin:', req.headers.origin);
+  next();
+});
+
+// ... rest of your server code
