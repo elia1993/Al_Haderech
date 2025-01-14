@@ -28,7 +28,7 @@ if (isDev) {
 } else {
   allowedOrigins = [
     process.env.FRONTEND_URL,   
-    process.env.VITE_ADMIN_API_URL,      
+    process.env.VITE_ADMIN_API_URL    
   ];
 }
 
@@ -46,7 +46,6 @@ app.use(cors({
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type, Authorization, token',
 }));
-
 
 app.use(express.json());
 
