@@ -34,17 +34,19 @@ if (isDev) {
 
 app.use(cors({
   origin: function (origin, callback) {
-    console.log("Origin:", origin); 
+    console.log("Request Origin:", origin);
+    console.log("Allowed Origins:", allowedOrigins);
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
-      console.error("Blocked by CORS:", origin); 
+      console.error("Blocked by CORS:", origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type, Authorization, token',
 }));
+
 
 app.use(express.json());
 
