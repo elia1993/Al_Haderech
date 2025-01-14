@@ -20,7 +20,7 @@ const isDev = process.env.NODE_ENV === 'development';
 let allowedOrigins;
 if (isDev) {
   allowedOrigins = [
-    'http://localhost:5180',
+    'http://localhost:5174',
     'http://localhost:5178',
     'http://localhost:5173',
     'http://localhost:5179',  
